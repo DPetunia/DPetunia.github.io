@@ -1,0 +1,107 @@
+/* General Navbar styles */
+.navbar {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar img {
+    display: block;
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    border-radius: 10px;
+    color: red;
+}
+
+/* Styles for right navigation */
+.rightnav {
+    display: block;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    padding: 22px;
+    text-decoration: none;
+    float: right;
+    margin-left: 5px;
+    margin-right: 5px;
+    max-width: 45px;
+}
+
+/* Styles for dashboard button */
+.buttondashbord {
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    border: 1px solid black;
+    padding: 22px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+}
+
+.buttondashbord:hover {
+    cursor: pointer;
+}
+
+/* Styles for button dashboard table */
+.tblbuttondashbord {
+    margin-top: 20px;
+}
+
+
+
+
+/* Styles for admin background */
+body.admin-background {
+    background-color: #90DCF4;
+}
+body.admin-background .buttondashbord {
+    background-color: #53d7ff;
+}
+body.admin-background .buttondashbord:hover{
+    background-color: #70aabc;
+}
+body.admin-background .navbar a:hover{
+    background-color: #70aabc;
+}
+
+
+
+/* Styles for staff background */
+body.staff-background {
+    background-color: #F5A4A4;
+}
+body.staff-background .buttondashbord {
+    background-color: #ff6262;
+}
+body.staff-background .buttondashbord:hover{
+    background-color: #9b6969;
+}
+body.staff-background .navbar a:hover{
+    background-color: #9b6969;
+}
+
+
+
+/* Styles for default background */
+body.default-background {
+    background-color: #A0D6A0;
+}
+body.default-background .buttondashbord {
+    background-color: #6dff6d;
+}
+body.default-background .buttondashbord:hover{
+    background-color: #638363;
+}
+body.default-background .navbar a:hover{
+    background-color: #638363;
+}
