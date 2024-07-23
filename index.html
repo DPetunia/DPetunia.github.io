@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MADRASAH AN-NUR - HOME</title>
+    <link rel="stylesheet" type="text/css" href="css/styles1.css">
+    <link rel="icon" href="src/logo.png">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+        }
+
+        #image-slideshow {
+            position: relative;
+            height: 500px;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: opacity 0.5s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide:not(.active) {
+            opacity: 0;
+        }
+
+        .slideshow-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #fff;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background-color: #007bff;
+        }
+
+        footer {
+            background-color: #f4a890;
+            color: #000000;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        footer a {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+
+        footer a:hover {
+            color: #007bff;
+        }
+    
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        th {
+            background-color: #3acefb;
+            color: black;
+            padding: 10px;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        th:hover {
+            background-color: #70aabc; /* Change color on hover */
+        }
+
+        .table-link {
+            color: black;
+            text-decoration: none;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .table-link:hover {
+            color: #fff; /* Change link color on hover */
+        }
+
+                /* Navbar container */
+                .navbar {
+                display: flex;
+                align-items: center; /* Vertically center items */
+                padding: 10px 20px; /* Adjust padding as needed */
+            }
+
+            /* Logo image */
+            .logo {
+                margin-right: auto; /* Pushes logo to the left and separates it from centered and right items */
+            }
+
+            /* Centered image container */
+            .centered-image-container {
+                flex: 1; /* Take up remaining space to center the image */
+                text-align: center; /* Center align the image horizontally */
+            }
+
+            .centered-image {
+                max-width: 100%; /* Ensure image scales with container */
+                height: auto; /* Maintain aspect ratio */
+            }
+</style>
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="centered-image-container">
+            <img src="src/welcome.png" class="centered-image" alt="Centered Image">
+         </div>
+        <div class="rightnav">
+            <a href="php">Login</a>
+        </div>
+    </div>
+
+    <section id="image-slideshow"> 
+        <div class="slide active" style="background-image: url('src/slaid_show1.png');"></div>
+        <div class="slide" style="background-image: url('src/slaid_show2.png');"></div>
+        <div class="slideshow-nav">
+            <div class="nav-dot active"></div>
+            <div class="nav-dot"></div>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript for slideshow functionality
+        let slides = document.querySelectorAll('.slide');
+        let dots = document.querySelectorAll('.nav-dot');
+
+        let currentSlide = 0;
+
+        // Function to show slide
+        function showSlide(n) {
+            slides.forEach((slide) => {
+                slide.classList.remove('active');
+            });
+            dots.forEach((dot) => {
+                dot.classList.remove('active');
+            });
+            slides[n].classList.add('active');
+            dots[n].classList.add('active');
+            currentSlide = n;
+        }
+
+        // Automatic slideshow
+        let slideInterval = setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000); // Change slide every 5 seconds
+
+        // Click function for dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                clearInterval(slideInterval); // Stop automatic slideshow on dot click
+            });
+        });
+    </script>
+        
+        <center>
+		
+			<!-- <ul style="text-align:center;list-style-type : none;">
+				
+				<li style ="font-size:30px;">MADRASAH AN-NUR</li>
+				<li style ="font-size:20px;">Tingkat Mayang Pasir, Bandar Bayan Baru,11950 Pulau Pinang</li>
+				<li style ="font-size:20px;"><a href="tel:+6046380511" class="phonecall">04 - 638 0511</a> / <a href="tel:+60195552982" class="phonecall">019 - 555 2982</a></li>
+			</ul> -->
+			
+            <table style="width: 100%; border-collapse: separate; border-spacing: 0; margin: 20px 0; font-size: 18px; text-align: center;">
+                <tr>
+                    <th class="hover-effect">
+                        <a href="#1" class="table-link">
+                            MAKLUMAT SEKOLAH
+                        </a>
+                    </th>
+                    <th class="hover-effect">
+                        <a href="#2" class="table-link">
+                            MATLAMAT SEKOLAH
+                        </a>
+                    </th>
+                    <th class="hover-effect">
+                        <a href="#3" class="table-link">
+                            FALSAFAH PENDIDIKAN
+                        </a>
+                    </th>
+                </tr>
+            </table>
+			
+			<br id="1">
+            <hr>
+			<h2 style="text-align:center; background-color:#F5B7B1;">MAKLUMAT SEKOLAH</h2>
+			<hr><br>
+			
+			<table width="90%" style="border:black; text-align:center; border-width:2px; border-style:solid;padding-top: 20px;padding-bottom: 20px;padding-left: 30px;padding-right: 40px;background-color:D1C9B4;">
+					<tr>
+
+						<td colspan="3"><img src="src/logo.png" style="width: 86px; height: 100px;"></td>									
+					</tr>
+					<tr>
+                    <td colspan="3"><center><H2>LOGO</H2></center></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <center>
+                            Logo Madrasah An-Nur menggunakan lima warna asas iaitu biru, merah, putih, hijau dan kuning.Tiga warna iaitu biru, merah dan putih adalah sempena warna bendera rasmi Negeri Pulau Pinang.<br><br><br>
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <merah>MERAH</merah>
+                    </td>
+                    <td>
+                        :
+                    </td>
+                    <td>
+                        Melambangkan semangat keberanian yang mesti ada dalam diri pelajar dalam menghadapi kehidupan.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <putih>PUTIH</putih>
+                    </td>
+                    <td>
+                        :
+                    </td>
+                    <td>
+                        Melambangkan kesucian, keluhuran dan keikhlasan hati setiap pelajar dalam menuntut ilmu pengetahuan.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <kuning>KUNING</kuning>
+                    </td>
+                    <td>
+                        :
+                    </td>
+                    <td>
+                        Warna diraja yang melambangkan kemuliaan dan sinaran ilmu. Tanpa ilmu seseorang manusia tidak akan dipandang mulia di mata masyarakat.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <biru>BIRU</biru>
+                    </td>
+                    <td>
+                        :
+                    </td>
+                    <td>
+                        Melambangkan keagungan Negeri Pulau Pinang juga semangat perpaduan antara guru dan pelajar dalam merapatkan lagi ukhuwah yang sedia ada.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <hijau>HIJAU</hijau>
+                    </td>
+                    <td>
+                        :
+                    </td>
+                    <td>
+                        Lambang keikhlasan sesuai dengan Maahad ini di mana matapelajaran yang berorientasikan agama Islam. Ini juga menunjukkan kesuburan ilmu pengetahuan.
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <center>
+                            <br><u><b>STRUKTUR</b></u><br>
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        BULAN SABIT
+                    </td>
+                    <td>
+                        :
+                    </td>
+                    <td>
+                        Islam sebagai Agama rasmi kita.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        AL-QURAN
+                    </td>
+                    <td>
+                        :
+                    </td>
+                    <td>
+                        Ilmu menerangi hidup sepanjang masa.
+                    </td>
+                </tr>
+			</table>
+				
+			<p style="text-align:center;"><a href="#top">Top</a></p>
+			
+            <br id="2">
+            <hr>
+			<h2 style="text-align:center; background-color:#F5B7B1;">MATLAMAT SEKOLAH</h2>
+			<hr><br>
+			
+			<table width="90%" style="border:black; text-align:center; border-width:2px; border-style:solid;padding-top: 20px;padding-bottom: 20px;padding-left: 30px;padding-right: 40px;background-color:D1C9B4;">
+                <tr>
+                    <td colspan="2"><center><H2>OBJEKTIF</H2></center></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img title="leaf.png" src="src/point.png" alt="" width="20" height="20">
+                    </td>
+                    <td>
+                        Untuk mewujudkan suatu sistem kelas pengajian Al-Quran dan Fardhu Ain yang kemas, seragam dan bersepadu di seluruh negara.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img title="leaf.png" src="src/point.png" alt="" width="20" height="20">
+                    </td>
+                    <td>
+                        Untuk memastikan semua murid yang berumur 6 hingga 12 tahun dapat membaca Al-Quran dan menguasai jawi dengan baik, betul dan dapat mempelajari serta mengamalkan perkara asas yang menjadi fardhu seseorang Islam.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img title="leaf.png" src="src/point.png" alt="" width="20" height="20">
+                    </td>
+                    <td>
+                        Untuk memperkukuhkan asas pendidikan islam di sekolah kebangsaan bagi memastikan murid mencapai tahap yang tinggi dalam pengetahuan agama Islam.
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><center><H2>VISI</H2></center></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Membina khaira ummah yang berilmu dan bertaqwa melalui pengurusan yang berkualiti berlandaskan syariat Islam.
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><center><H2>MISI</H2></center></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Menjadi institusi hal Ehwal Islam bertaraf antarabangsa demi kesejahteraan ummah yang seimbang.
+                    </td>
+                </tr>
+            </table>
+			<p style="text-align:center;"><a href="#top">Top</a></p>
+			
+			<br id="3">
+            <hr>
+			<h2 style="text-align:center; background-color:#F5B7B1;">FALSAFAH PENDIDIKAN</h2>
+			<hr><br>
+
+				<table width="90%" style="border:black; text-align:center; border-width:2px; border-style:solid;padding-top: 20px;padding-bottom: 20px;padding-left: 30px;padding-right: 40px;">
+					<tr>
+								<td><center><H2>FALSAFAH PENDIDIKAN KEBANGSAAN</H2></center></td>
+							</tr>
+							<tr>
+								<td>
+									Pendidikan di Malaysia adalah suatu usaha berterusan ke arah lebih memperkembangkan potensi individu secara menyeluruh dan bersepadu untuk mewujudkan insan yang seimbang dan harmonis dari segi intelek, rohani, emosi dan jasmani berdasarkan kepercayaan dan kepatuhan kepada Tuhan. Usaha adalah bertujuan untuk melahirkan warganegara yang berilmu pengetahuan, berketrampilan, berakhlak mulia, bertanggungjawab dan berkeupayaan mencapai kesejahteraan diri serta memberi sumbangan terhadap keharmonian dan kemakmuran keluarga, masyarakat dan Negara.
+								</td>
+							</tr>
+							<tr>
+								<td><center><H2>FALSAFAH PENDIDIKAN ISLAM</H2></center></td>
+							</tr>
+							<tr>
+								<td>
+									Pendidikan adalah satu usaha berterusan untuk menyampaikan ilmu kemahiran dan pengetahuan islam berdasarkan Al-Quran dan As-Sunnah bagi membentuk sikap, kemahiran, keperibadian dan panduan hidup sebagai hamba Allah yang mempunyai tanggungjawab untuk membangunkan diri, masyarakat, alam sekitar dan Negara kearah mencapai kebaikan di dunia dan kesejahteraan abadi di akhirat.
+								</td>
+							</tr>
+							<tr>
+								<td><center><H2>FALSAFAH KAFA</H2></center></td>
+							</tr>
+							<tr>
+								<td>
+									Pengajian Al-Quran dan Fardhu Ain adalah satu usaha berterusan untuk mendidik dan membentuk pelajar-pelajar kea rah memperkembangkan fitrah individu (insan) selaras dengan kehendak Al-Quran dan As-Sunnah. Usaha ini bertujuan untuk melahirkan manusia yang terdidik dengan didikan Al-Quran dan As-Sunnah yang kuat, iman dan amalannya kepada Allah s.w.t serta menghayati akhlak dan cara hidup Islam.
+								</td>
+							</tr>
+				</table>
+				
+			<p style="text-align:center;"><a href="#top">Top</a></p>
+			
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254247.34610053967!2d100.10600293611333!3d5.32262812641758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac06c0fb942c1%3A0xff99802bfb8c16e9!2sMadrasah%20An%20Nur!5e0!3m2!1sen!2smy!4v1719124919473!5m2!1sen!2smy" width="700" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </center>
+    <br>
+    <footer>
+        <p>&copy; 2024 Madrasah An-Nur. All rights reserved.</p>
+        <p>
+            Contact us: 
+            <a href="mailto:info@madrasahannur.edu.my">info@madrasahannur.edu.my</a> | 
+            <a href="tel:+6046380511">04 - 638 0511</a> | 
+            <a href="tel:+60195552982">019 - 555 2982</a>
+        </p>
+    </footer>
+    </body>
+</html>
